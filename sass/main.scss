@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import "abstract/mixin";
+@import "abstract/variable";
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	padding: 3rem;
+	@include respond(tab-port) {
+		padding: 1rem;
+	}
+	.header{
+		text-align: center;
+		margin-bottom: 2rem;
+		color: $color-primary;
+	}
+}
+table{
+	width: 100%;	
+	tr{
+   	 	display: flex;
+    	flex-direction: row;
+    	border-bottom: 2px solid $color-lightgrey;
+	}
+	th,td{
+		text-transform: uppercase;
+		color: $color-darkgrey;
+		font-weight: 400;
+		flex:1;		
+		text-align: left; 
+  		padding: 0.5em;
+
+	}
+	th{
+		font-size: 12px;
+		color:$color-black;
+		&.th-size,
+		&.th-colour{
+			@include respond(tab-port) {
+			 	display: none;
+			}
+		}
+		&.sort{
+			cursor: pointer;
+			&:hover{
+				background-color: $color-lightgrey;
+			}
+		}
+		&.asc,
+		&.desc{
+			font-weight: 700;
+			&:after{
+				display: inline;
+			}
+		}
+		&.asc:after{
+			content: '↓';
+		}
+		&.desc:after{
+			content: '↑';
+		}
+	}
+	td{	
+		font-size: .8rem;
+    	flex: 1;
+    	align-self: center;
+    	height: auto;
+		&.product_image{
+
+			img{
+				min-width: 8rem;
+				max-width: 8rem;
+				object-fit: contain;
+				@include respond(phone) {
+				min-width: 4.25rem;
+			 	max-width: 4.25rem;
+			}
+			}
+		}
+		&.product_type{
+			flex-direction: column;
+  			hyphens: auto;
+			.product_size{
+				display:none;
+				@include respond(tab-port) {
+			 		display: block;
+			 }
+			}
+		}
+		&.product_price{
+			font-size: 16px;
+			display: flex;
+			@include respond(tab-port) {
+				font-size: 12px;
+			 	display: block;
+			}
+			.discountedPrice{
+		 		color: $color-primary;		 			
+				margin-right: .5rem;
+		 	}
+		 	.actualPrice{
+				color: $color-black;
+				text-decoration: line-through;
+			}
+		}
+		&.product_size,
+		&.product_colour{
+			@include respond(tab-port) {
+			 	display: none;
+			 }
+		}
+	}
+	
+}
+.text-bold{
+	font-weight: 700;
+}
+
+.font-primary{
+	color: $color-primary;
+}
+
