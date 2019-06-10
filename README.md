@@ -1,6 +1,6 @@
 # isawitfirst
 
-[View site]https://niharikasareen.github.io/isawitfirst/)
+[View site](https://niharikasareen.github.io/isawitfirst/)
 
 or
 
